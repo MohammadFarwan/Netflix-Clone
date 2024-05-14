@@ -6,16 +6,8 @@ import axios from "axios";
 
 function MovieList({ moviesData, isFavPage }) {
 
-
-
     const [show, setShow] = useState(false);
     const [clickedMovie, setClickedMovie] = useState({});
-    // const [updateItem, setUpdateItem] = useState(false);
-
-    // const handleShow = (item) => {
-    //     setShow(true)
-    //     // console.log(item)
-    // }
 
 
     const handleClose = () => {
@@ -52,8 +44,6 @@ function MovieList({ moviesData, isFavPage }) {
     }, [])
 
 
-
-
     // for delete
     const deleteItem = (item) => {
         let url = `http://localhost:3002/DELETE/${item.id}`
@@ -73,6 +63,9 @@ function MovieList({ moviesData, isFavPage }) {
     // for update a comment 
     const updateItem = (item) => {
         showModal(item);
+
+
+
     }
 
 
@@ -83,10 +76,10 @@ function MovieList({ moviesData, isFavPage }) {
                 isFavPage && <Row>
                     {moviesFavorite.map(item => (
                         <Col key={item.id}>
-                            <Movie item={item} showModal={showModal} isFavPage={isFavPage} deleteItem={deleteItem} />
+                            <Movie item={item} showModal={showModal} isFavPage={isFavPage} deleteItem={deleteItem} updateItem={updateItem} />
                         </Col>
                     ))}
-                    <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} updateItem={updateItem} isFavPage={isFavPage} />
+                    <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} isFavPage={isFavPage} updateFavoriteMovies={setMoviesFavorite} />
                 </Row>
             }
             {
