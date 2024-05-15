@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 function ModalMovie(props) {
 
     // for add a comment on movie 
+
     const url = `${process.env.REACT_APP_serverURL}/addMovie`;
 
     const addComment = (e) => {
@@ -39,6 +40,7 @@ function ModalMovie(props) {
 
     const updateComment = (e) => {
 
+
         const url = `${process.env.REACT_APP_serverURL}/UPDATE/${props.clickedMovie.id}`; const obj = {
             title: props.clickedMovie.title,
             release_date: props.clickedMovie.release_date,
@@ -58,6 +60,7 @@ function ModalMovie(props) {
                     }
                     return movie;
                 });
+
                 props.updateFavoriteMovies(updatedMovies);
 
                 // console.log(response.data);
@@ -72,6 +75,7 @@ function ModalMovie(props) {
 
 
     return (
+
         <><Modal show={props.show}
             onHide={props.handleClose} >
             <Modal.Header closeButton>
@@ -94,6 +98,7 @@ function ModalMovie(props) {
                                     defaultValue={props.clickedMovie.comment || ''}
                                     placeholder="Enter your comment"
                                 />
+
                             </>
                         }
                         {!props.isFavPage &&

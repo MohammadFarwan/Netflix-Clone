@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 function Home() {
 
+
     const [moviesData, setMoviesData] = useState([]);
 
     const getAllMovies = () => {

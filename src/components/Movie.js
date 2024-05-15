@@ -22,7 +22,6 @@ function Movie(props) {
                     }
                 </Card.Body>
             </Card >
-
         </>
     )
 }
