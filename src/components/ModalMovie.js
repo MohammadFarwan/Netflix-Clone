@@ -63,9 +63,11 @@ function ModalMovie(props) {
 
                 props.updateFavoriteMovies(updatedMovies);
 
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
                 // console.log(response.data);
 
-                window.location.reload();
             })
             .catch(error => {
                 console.error('Error:', error);

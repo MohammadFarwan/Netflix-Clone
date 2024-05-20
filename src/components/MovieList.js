@@ -48,8 +48,8 @@ function MovieList({ moviesData, isFavPage }) {
     // for delete
     const deleteItem = (item) => {
 
-        let url = `${process.env.REACT_APP_serverURL}/DELETE/${item.id}`; 
-      console.log(url);
+        let url = `${process.env.REACT_APP_serverURL}/DELETE/${item.id}`;
+        console.log(url);
         axios.delete(url)
             .then(response => {
                 console.log(response.data);
@@ -64,7 +64,10 @@ function MovieList({ moviesData, isFavPage }) {
 
     // for update a comment 
     const updateItem = (item) => {
+        console.log("hello");
         showModal(item);
+        console.log(item);
+        console.log("hello");
 
 
 
