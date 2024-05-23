@@ -33,6 +33,9 @@ function ModalMovie(props) {
             .catch(error => {
                 console.log(error);
             });
+
+        props.handleClose();
+
     }
 
 
@@ -65,7 +68,7 @@ function ModalMovie(props) {
 
                 setTimeout(function () {
                     window.location.reload();
-                }, 2000);
+                }, 4000);
                 // console.log(response.data);
 
             })
