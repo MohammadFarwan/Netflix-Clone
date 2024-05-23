@@ -2,13 +2,15 @@
 import ModalMovie from "./ModalMovie";
 import { useState, useEffect } from "react";
 import Movie from "./Movie";
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import axios from "axios";
 
 function MovieList({ moviesData, isFavPage }) {
 
     const [show, setShow] = useState(false);
     const [clickedMovie, setClickedMovie] = useState({});
+    //for render favMovies
+    const [moviesFavorite, setMoviesFavorite] = useState([])
 
 
     const handleClose = () => {
@@ -21,8 +23,6 @@ function MovieList({ moviesData, isFavPage }) {
         setClickedMovie(item)
     }
 
-    //for render favMovies
-    const [moviesFavorite, setMoviesFavorite] = useState([])
 
 
     const getAllFavMovies = () => {
@@ -92,7 +92,7 @@ function MovieList({ moviesData, isFavPage }) {
                         </Col>
                     ))}
 
-                    <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} isFavPage={isFavPage} updateFavoriteMovies={updateFavoriteMovies} />
+                    <ModalMovie show={show} handleClose={handleClose} clickedMovie={clickedMovie} setMoviesFavorite={setMoviesFavorite} isFavPage={isFavPage} updateFavoriteMovies={updateFavoriteMovies} />
 
                 </Row>
             }

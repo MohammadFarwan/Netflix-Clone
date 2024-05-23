@@ -44,7 +44,8 @@ function ModalMovie(props) {
     const updateComment = (e) => {
 
 
-        const url = `${process.env.REACT_APP_serverURL}/UPDATE/${props.clickedMovie.id}`; const obj = {
+        const url = `${process.env.REACT_APP_serverURL}/UPDATE/${props.clickedMovie.id}`;
+        const obj = {
             title: props.clickedMovie.title,
             release_date: props.clickedMovie.release_date,
             poster_path: props.clickedMovie.poster_path,
@@ -64,11 +65,13 @@ function ModalMovie(props) {
                     return movie;
                 });
 
-                props.updateFavoriteMovies(updatedMovies);
+                console.log(updatedMovies);
 
-                setTimeout(function () {
-                    window.location.reload();
-                }, 4000);
+                props.setMoviesFavorite(updatedMovies);
+
+                // setTimeout(function () {
+                //     window.location.reload();
+                // }, 4000);
                 // console.log(response.data);
 
             })
